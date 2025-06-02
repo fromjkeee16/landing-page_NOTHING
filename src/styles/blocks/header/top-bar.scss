@@ -1,0 +1,56 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 20px;
+
+  @include on-tablet {
+    padding-block: 64px;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__phone {
+    position: relative;
+    text-decoration: none;
+
+    @include on-desktop {
+      &:hover::after {
+        content: '+1 234 5555-55-55';
+
+        position: absolute;
+        left: -8px;
+        transform: translate(-100%, 50%);
+
+        font-family: Inter, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        color: $main-text-color;
+        text-wrap: nowrap;
+        letter-spacing: 2px;
+      }
+    }
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 16px;
+
+    @include on-tablet {
+      height: 24px;
+    }
+
+    @include on-hover(transform, scale($default-scale-factor));
+  }
+}
